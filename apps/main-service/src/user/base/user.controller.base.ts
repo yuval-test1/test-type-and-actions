@@ -199,4 +199,20 @@ export class UserControllerBase {
       throw error;
     }
   }
+
+  @common.Get("/:id/user-module-custom-action-with-types")
+  @swagger.ApiOkResponse({
+    type: [User],
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async UserModuleCustomActionWithTypes(
+    args: UpdateStatusArgs
+  ): Promise<User[]> {
+    return this.service.UserModuleCustomActionWithTypes(args);
+  }
 }

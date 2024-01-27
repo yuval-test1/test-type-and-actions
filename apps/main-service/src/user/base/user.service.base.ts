@@ -71,4 +71,9 @@ export class UserServiceBase {
   ): Promise<User> {
     return this.prisma.user.delete(args);
   }
+  async UserModuleCustomActionWithTypes(
+    args: UpdateStatusArgs
+  ): Promise<User[]> {
+    throw new Error("Not implemented");
+  }
 }

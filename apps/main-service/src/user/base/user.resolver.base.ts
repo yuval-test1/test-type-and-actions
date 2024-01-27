@@ -131,4 +131,11 @@ export class UserResolverBase {
       throw error;
     }
   }
+
+  @graphql.Query(() => [User])
+  async UserModuleCustomActionWithTypes(
+    args: UpdateStatusArgs
+  ): Promise<User[]> {
+    return this.service.UserModuleCustomActionWithTypes(args);
+  }
 }
